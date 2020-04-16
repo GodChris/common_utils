@@ -17,7 +17,32 @@ The project integrates basic generic tools, AOP, reflection, custom annotations 
 （2）在需要打印日志的方法外加上@XLog注解，在方法执行前打印出方法的入参，及方法返回时打印出参
 logkey为log的keyword
 entityField为要打印的域，不填默认打印全部对象
-
+ 示例：
+ A:
+ @Service
+ public class TestServiceImpl implements TestService {
+ 	@Override
+ 	@XLog
+ 	public List<User> getUserInfo(User user) {
+ 		List<User> u = Lists.newArrayList();
+ 		u.add(user);
+ 		return u;
+ 	}
+ }
+ B:
+ @RestController
+ public class TestController {
+ 
+ 	@Autowired
+ 	private TestService testService;
+ 
+ 	@RequestMapping(value = "/test", method = RequestMethod.POST)
+ 	@XLog
+ 	public List<User> login(@RequestBody User user) {
+ 		System.out.println("======START=======");
+ 		return testService.getUserInfo(user);
+ 	}
+ }
 
 #### 参与贡献
 
