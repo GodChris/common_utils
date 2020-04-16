@@ -2,22 +2,22 @@
 
 #### 介绍
 The project integrates basic generic tools, AOP, reflection, custom annotations to save development time.
+一些通用工具，主要为了记录学习内容，同时方便个人开发使用
 
 #### 软件架构
-软件架构说明
-
-
-#### 安装教程
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
+普通的maven项目，引入了spring-boot包，打包成jar包引入即可
 
 #### 使用说明
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+1.  @XLog使用
+（1）添加common扫描
+         @ComponentScan({
+               "com.godchris.common"
+         })
+（2）在需要打印日志的方法外加上@XLog注解，在方法执行前打印出方法的入参，及方法返回时打印出参
+logkey为log的keyword
+entityField为要打印的域，不填默认打印全部对象
+
 
 #### 参与贡献
 
